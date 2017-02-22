@@ -30,7 +30,7 @@ $statement->closeCursor(); // close the connection
             <!-- FIX THE ADD NEW BOOK BUTTON -->
             <!-- /////////////////////////// -->
 
-            <a class="btn btn-primary" href="">
+            <a class="btn btn-primary" href="book_details.php?bookID=0">
                 <i class="fa fa-plus"></i> Add New Book</a>
             <br>
             <table class="table table-striped table-hover table-bordered">
@@ -53,9 +53,9 @@ $statement->closeCursor(); // close the connection
                             <!-- MODIFY SECTION BELOW -->
                             <!-- //////////////////// -->
 
-                            <td> <!-- Add the Edit Button here --> </td>
+                            <td><a class="btn-primary" href="book_details.php?bookID<?php echo $book['Id'] ?>"><i class="fa fa-pencil-square-o"></i> Edit</a></td>
 
-                            <td> <!-- Add the Delete Button here --></td>
+                            <td><i class="btn btn-danger" href="book_delete.php?bookID<?php ech $book['Id'] ?>"><i class="fa fa-trash-o"></i> Delete</a></td>
                         </tr>
                     <?php endforeach; ?>
 

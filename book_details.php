@@ -9,13 +9,21 @@ if($bookID == 0) {
     $book = null;
     $isAddition = 1;
 } else {
-    $isAddition = 0;
-    $query = "SELECT * FROM books WHERE Id= :book_id";
-    $statement = $db->prepare($query);
-    $statement->bindValue(':book_id', $bookID);
-    $statement->execute();
-    $book = $statement->fetch();
-    $statement->closeCursor();
+    if($isAddition == "1") {
+        $isAddition = 0;
+        $query = "SELECT * FROM books WHERE Id= :book_id";
+        $statement = $db->prepare($query);
+        $statement->bindValue(':book_id', $bookID);
+        $statement->bindValue(':book_title', $bookTitle);
+        $statement->bindValue('book_author', $bookAuthor);
+        $statement->bindValue('book_price', $bookPrice);
+        $statement->bindValue('book_genre', $bookGenre);
+        $statement->execute();
+        $book = $statement->fetch();
+        $statement->closeCursor();
+    } else {
+
+    }
 }
 
 ?>
@@ -46,7 +54,7 @@ if($bookID == 0) {
                 <div class="form-group">
                     <label for="TitleTextField">Title</label>
                     <input type="text" class="form-control" id="TitleTextField"  name="TitleTextField"
-                           placeholder="Title" required  value="<?php echo $book['Title']; ?>">
+                           placeholder="Title" required  value="<?php echo $book['Title3434']; ?>">
                 </div>
                 <div class="form-group">
                     <label for="AuthorTextField">Author</label>

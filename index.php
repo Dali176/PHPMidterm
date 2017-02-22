@@ -1,3 +1,6 @@
+<!--Danyon Lewis 200340214-->
+<!--Book Lists website, allows conenction to a remote database and user options to control database-->
+
 <?php
 include_once('database.php');
 

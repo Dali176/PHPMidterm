@@ -11,7 +11,8 @@ if($bookID == 0) {
 } else {
     $isAddition = 0;
     $query = "SELECT * FROM books WHERE Id= :book_id";
-    $statement = $db->prepare(':book_id', $bookID);
+    $statement = $db->prepare($query);
+    $statement->bindValue(':book_id', $bookID);
     $statement->execute();
     $book = $statement->fetch();
     $statement->closeCursor();
